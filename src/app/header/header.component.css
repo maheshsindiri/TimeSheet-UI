@@ -1,6 +1,11 @@
 .navback {
-    background-color: #FAFAFA;
 
+    background-color: #FAFAFA;
+    height: 100px;
+
+    margin: 50px 250px 0 250px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
 }
 
 .imgsize {
@@ -10,4 +15,17 @@
 ul li a {
     color: #1B3D6E;
     font-weight: 600;
+    padding-right: 60px;
+}
+
+@media only screen and (max-width: 1700px) {
+    .navback {
+
+        background-color: #FAFAFA;
+        height: 100px;
+
+        /* margin: 50px 250px 0 250px; */
+        /* border-radius: 10px; */
+        box-shadow: 10px 10px 5px #aaaaaa;
+    }
 }
