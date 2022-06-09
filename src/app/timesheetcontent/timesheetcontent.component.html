@@ -1,0 +1,220 @@
+<div class="container-md mt-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="timesheet">
+                <div class="row">
+                    <div class="col-md-2 timecard">
+
+                        <p class="text-center pt-2" style="color:white ;opacity: 1;"> Period Start
+                            Date
+                        </p>
+
+                    </div>
+                    <div class="col-md-4 timecard" style="background-color: #FF8A80;">
+
+                        <p class="text-center pt-2" style="color:white ;opacity: 1"> Period End Date
+
+                        </p>
+
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4 timecard" style="background-color:#42549E;">
+
+                        <p class="text-center pt-2" style="color:white ;opacity: 1;"> Total Work Week
+                            Hours
+                        </p>
+
+                    </div>
+                    <div class="col-md-4 timecard" style="background-color: #08D3D3;">
+
+                        <p class="text-center pt-2" style="color:white ;opacity: 1;"> Total Hours
+                            Worked
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- dropdown -->
+                <div class="me-5 ms-5 mt-5">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2 nopadding me-1">
+                                    <div class="dropdown rounded ">
+                                        <p style="color: #7B7B7B;"
+                                            class="d-flex aligns-items-center justify-content-center">Project Name</p>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2 nopadding me-1">
+                                    <div class="dropdown rounded text-center">
+                                        <p style="color: #7B7B7B;">Activity</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 nopadding me-1">
+                                    <div class="dropdown text-center rounded">
+                                        <p style="color: #7B7B7B;">Task</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1  nopadding me-1">
+                                    <div class="days text-center rounded">
+                                        <p style="color: #7B7B7B;">Mon</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1  nopadding me-1">
+                                    <div class="days text-center rounded">
+                                        <p style="color: #7B7B7B;">Tue</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1  nopadding me-1">
+                                    <div class="days text-center rounded">
+                                        <p style="color: #7B7B7B;">Wed</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1  nopadding me-1">
+                                    <div class="days text-center rounded">
+                                        <p style="color: #7B7B7B;">Thu</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1  nopadding me-1">
+                                    <div class="days text-center rounded">
+                                        <p style="color: #7B7B7B;">Fri</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 nopadding me-1">
+                                    <div class="days text-center rounded">
+                                        <p style="color: #7B7B7B;">Sat</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- inputfields data -->
+                <div class="me-5 ms-5 mt-1">
+                    <form>
+                        <div class="row" *ngFor="let obj of dataArry">
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-2 nopadding me-1">
+                                        <!-- <div class=" dropdown"> -->
+                                        <select class="form-select" aria-label="Default select example"
+                                            [(ngModel)]="obj.projectName" name="activity">
+
+                                            <option value="volvo">Persona Nutrition</option>
+                                            <option value="saab">Puritains</option>
+                                            <option value="opel">Nestle Health Sciences</option>
+                                            <option value="audi">Market Central</option>
+                                            <option value="audi">Family Central</option>
+                                            <option value="audi">Internal POC</option>
+                                            <option value="audi">External POC</option>
+                                            <option value="audi">Marketing & Sales</option>
+                                        </select>
+                                        <!-- <select name="cara" id="cars" style="width: 203px;border: none;">
+                                            <option value="volvo">Persona Nutrition</option>
+                                            <option value="saab">Puritains</option>
+                                            <option value="opel">Nestle Health Sciences</option>
+                                            <option value="audi">Market Central</option>
+                                            <option value="audi">Family Central</option>
+                                            <option value="audi">Internal POC</option>
+                                            <option value="audi">External POC</option>
+                                            <option value="audi">Marketing & Sales</option>
+                                        </select> -->
+                                        <!-- </div> -->
+
+                                    </div>
+                                    <div class="col-md-2 nopadding me-1">
+                                        <select class="form-select" aria-label="Default select example"
+                                            [(ngModel)]="obj.activity" name="activity">
+                                            <option value="volvo">Unit Testing</option>
+                                            <option value="saab">Acceptance Testing</option>
+                                            <option value="opel">Warrant/MC</option>
+                                            <option value="audi">System Testing</option>
+                                            <option value="audi">Coding\Implementation</option>
+                                            <option value="audi">Design</option>
+                                            <option value="audi">Support</option>
+                                            <option value="audi">Integration Testing</option>
+                                            <option value="audi">Requirements Development</option>
+                                            <option value="audi">Planning</option>
+                                            <option value="audi">PTO</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-1 nopadding me-1">
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="task" [(ngModel)]="obj.task">
+                                        <!-- <input type="text"> -->
+                                    </div>
+                                    <div class="col-md-1 nopadding me-1">
+                                        <input type="number" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="mon" [(ngModel)]="obj.mon">
+                                        <!-- <input type="text"> -->
+                                    </div>
+                                    <div class="col-md-1 nopadding me-1">
+                                        <input type="number" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="tue" [(ngModel)]="obj.tue">
+                                        <!-- <input type="text"> -->
+                                    </div>
+                                    <div class="col-md-1 nopadding me-1">
+                                        <input type="number" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="wed" [(ngModel)]="obj.wed">
+                                        <!-- <input type="text"> -->
+                                    </div>
+                                    <div class="col-md-1 nopadding me-1">
+                                        <input type="number" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="thu" [(ngModel)]="obj.thu">
+                                        <!-- <input type="text"> -->
+                                    </div>
+                                    <div class="col-md-1 nopadding me-1">
+                                        <input type="number" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="fri" [(ngModel)]="obj.fri">
+                                        <!-- <input type="text"> -->
+                                    </div>
+                                    <div class="col-md-1 nopadding me-1">
+                                        <input type="number" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="sat" [(ngModel)]="obj.sat">
+                                        <!-- <input type="text"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-primary d-flex pe-5" (click)="addFrom()"> ADD</button>
+
+                            </div>
+                            <div class="col-md-1 d-flex">
+                                <button class="btn btn-primary d-flex pe-5"> ADD</button>
+
+                            </div>
+                        </div>
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+
+        </div>

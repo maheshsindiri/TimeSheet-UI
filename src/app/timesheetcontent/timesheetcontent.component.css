@@ -1,0 +1,73 @@
+.timesheet {
+    background-color: #FAFAFA;
+    height: 500px;
+}
+
+.timecard {
+    background-color: #81C784;
+    width: 160px;
+    height: 65px;
+    margin: 25px;
+    border-radius: 3px;
+}
+
+.timecard p {
+    font-size: small;
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .timecard {
+        background-color: #81C784;
+        width: 140px;
+        height: 65px;
+        margin: 25px;
+        border-radius: 3px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .timecard {
+        background-color: #81C784;
+        width: 110px;
+        height: 65px;
+        margin: 25px;
+        border-radius: 3px;
+    }
+
+    .timecard p {
+        font-size: x-small;
+    }
+}
+
+
+.dropdown {
+    font-size: small;
+    background-color: #F2F3F7;
+    height: 30px;
+    /* width: 170px; */
+}
+
+.days {
+    font-size: small;
+    background-color: #A9C3E5;
+    height: 30px;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .timecard {
+        background-color: #81C784;
+        width: 110px;
+        height: 65px;
+        margin: 25px;
+        border-radius: 3px;
+    }
+
+    .timecard p {
+        font-size: x-small;
+    }
+}

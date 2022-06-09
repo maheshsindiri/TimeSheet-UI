@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "smbxlTimesheet"
+  "cli": {
+    "analytics": "e3773bec-3d39-43a3-8b3a-fc8eb5a7b015"
+  }
 }
