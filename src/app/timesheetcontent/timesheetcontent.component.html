@@ -1,4 +1,5 @@
 <div class="container-md mt-5">
+    <form [formGroup]="taskData" (ngSubmit)="addForm()">
     <div class="row">
         <div class="col-lg-12">
             <div class="timesheet">
@@ -99,23 +100,23 @@
 
                 <!-- inputfields data -->
                 <div class="me-5 ms-5 mt-1">
-                    <form>
-                        <div class="row" *ngFor="let obj of dataArry">
+                
+                        <div class="row" formArrayName="itenRows">
                             <div class="col-md-10">
-                                <div class="row">
+                                <div class="row" *ngFor="let item of itemRows.controls">
                                     <div class="col-md-2 nopadding me-1">
                                         <!-- <div class=" dropdown"> -->
-                                        <select class="form-select" aria-label="Default select example"
-                                            [(ngModel)]="obj.projectName" name="activity">
+                                        <select class="form-select" aria-label="Default select example" name="activity"
+                                            formControlName="projectName">
 
-                                            <option value="volvo">Persona Nutrition</option>
-                                            <option value="saab">Puritains</option>
-                                            <option value="opel">Nestle Health Sciences</option>
-                                            <option value="audi">Market Central</option>
-                                            <option value="audi">Family Central</option>
-                                            <option value="audi">Internal POC</option>
-                                            <option value="audi">External POC</option>
-                                            <option value="audi">Marketing & Sales</option>
+                                            <option value="Persona Nutrition">Persona Nutrition</option>
+                                            <option value="Puritains">Puritains</option>
+                                            <option value="Nestle Health Sciences">Nestle Health Sciences</option>
+                                            <option value="Market Central">Market Central</option>
+                                            <option value="Family Central">Family Central</option>
+                                            <option value="Internal POC">Internal POC</option>
+                                            <option value="External POC">External POC</option>
+                                            <option value="Marketing & Sales">Marketing & Sales</option>
                                         </select>
                                         <!-- <select name="cara" id="cars" style="width: 203px;border: none;">
                                             <option value="volvo">Persona Nutrition</option>
@@ -131,60 +132,60 @@
 
                                     </div>
                                     <div class="col-md-2 nopadding me-1">
-                                        <select class="form-select" aria-label="Default select example"
-                                            [(ngModel)]="obj.activity" name="activity">
-                                            <option value="volvo">Unit Testing</option>
-                                            <option value="saab">Acceptance Testing</option>
-                                            <option value="opel">Warrant/MC</option>
-                                            <option value="audi">System Testing</option>
-                                            <option value="audi">Coding\Implementation</option>
-                                            <option value="audi">Design</option>
-                                            <option value="audi">Support</option>
-                                            <option value="audi">Integration Testing</option>
-                                            <option value="audi">Requirements Development</option>
-                                            <option value="audi">Planning</option>
-                                            <option value="audi">PTO</option>
+                                        <select class="form-select" aria-label="Default select example" name="activity"
+                                            formControlName="activity">
+                                            <option value="Unit Testing">Unit Testing</option>
+                                            <option value="Acceptance Testing">Acceptance Testing</option>
+                                            <option value="Warrant/MC">Warrant/MC</option>
+                                            <option value="System Testing">System Testing</option>
+                                            <option value="Coding\Implementation">Coding\Implementation</option>
+                                            <option value="Design">Design</option>
+                                            <option value="Support">Support</option>
+                                            <option value="Integration Testing">Integration Testing</option>
+                                            <option value="Requirements Development">Requirements Development</option>
+                                            <option value="Planning">Planning</option>
+                                            <option value="PTO">PTO</option>
                                         </select>
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="task" [(ngModel)]="obj.task">
+                                            aria-describedby="emailHelp" name="task" formControlName="task">
                                         <!-- <input type="text"> -->
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="number" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="mon" [(ngModel)]="obj.mon">
+                                            aria-describedby="emailHelp" name="mon" formControlName="mon">
                                         <!-- <input type="text"> -->
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="number" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="tue" [(ngModel)]="obj.tue">
+                                            aria-describedby="emailHelp" name="tue" formControlName="tue">
                                         <!-- <input type="text"> -->
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="number" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="wed" [(ngModel)]="obj.wed">
+                                            aria-describedby="emailHelp" name="wed" formControlName="wed">
                                         <!-- <input type="text"> -->
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="number" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="thu" [(ngModel)]="obj.thu">
+                                            aria-describedby="emailHelp" name="thu" formControlName="thu">
                                         <!-- <input type="text"> -->
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="number" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="fri" [(ngModel)]="obj.fri">
+                                            aria-describedby="emailHelp" name="fri" formControlName="fri">
                                         <!-- <input type="text"> -->
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="number" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="sat" [(ngModel)]="obj.sat">
+                                            aria-describedby="emailHelp" name="sat" formControlName="sat">
                                         <!-- <input type="text"> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-1">
-                                <button class="btn btn-primary d-flex pe-5" (click)="addFrom()"> ADD</button>
+                                <button class="btn btn-primary d-flex pe-5" type="submit"> ADD</button>
 
                             </div>
                             <div class="col-md-1 d-flex">
@@ -192,29 +193,30 @@
 
                             </div>
                         </div>
-                    </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                   
 
                 </div>
+
+
             </div>
 
 
 
-
         </div>
+        
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

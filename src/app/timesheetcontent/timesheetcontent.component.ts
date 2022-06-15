@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-timesheetcontent',
@@ -6,30 +7,61 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timesheetcontent.component.css']
 })
 export class TimesheetcontentComponent implements OnInit {
+  taskData: FormGroup;
 
-  constructor() { }
 
-  // createobj = {};
-  createobj: any = {
-    projectName: "",
-    activity: "",
-    task: "",
-    mon: "",
-    tue: "",
-    wed: "",
-    thu: "",
-    fri: "",
-    sat: ""
+  constructor(public fb: FormBuilder) {
+
+    // var items = new FormArray([
+    //   this.taskData = this.fb.group({
+    //     projectName: [""],
+    //     activity: [""],
+    //     task: [""],
+    //     mon: [""],
+    //     tue: [""],
+    //     wed: [""],
+    //     thu: [""],
+    //     fri: [""],
+    //     sat: [""]
+
+    //   })
+
+    // ])
   }
-
-  dataArry = [];
   addForm() {
+
+    this.formArry.push(this.initItemRow())
 
   }
 
 
   ngOnInit(): void {
-    this.dataArry.push(this.createobj)
+    this.taskData = this.fb.group({
+      //create a itemrows control in formgroup
+      itemRows: this.fb.array([this.initItemRow()])
+
+    })
+  }
+  get formArry() {
+    return this.taskData.get("itemRows") as FormArray;
+  }
+  initItemRow() {
+    return this.fb.group({
+      projectName: [""],
+      activity: [""],
+      task: [""],
+      mon: [""],
+      tue: [""],
+      wed: [""],
+      thu: [""],
+      fri: [""],
+      sat: [""]
+    })
   }
 
+
+
+
 }
+
+
