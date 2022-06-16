@@ -1,5 +1,5 @@
 <div class="container-md mt-5">
-    <form [formGroup]="taskData" (ngSubmit)="addForm()">
+
     <div class="row">
         <div class="col-lg-12">
             <div class="timesheet">
@@ -8,17 +8,21 @@
 
                         <p class="text-center pt-2" style="color:white ;opacity: 1;"> Period Start
                             Date
+                            <input type="date" class="form-control" id="datapicker" name="date" [(ngModel)]="startDate"
+                                name="startDate">
                         </p>
+
 
                     </div>
                     <div class="col-md-4 timecard" style="background-color: #FF8A80;">
 
                         <p class="text-center pt-2" style="color:white ;opacity: 1"> Period End Date
-
+                            <input type="date" class="form-control" id="datapicker" style="background-color: #FF8A80 ;">
                         </p>
 
+
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
 
                     </div>
                     <div class="col-md-4 timecard" style="background-color:#42549E;">
@@ -43,49 +47,49 @@
                         <div class="col-md-10">
                             <div class="row">
                                 <div class="col-md-2 nopadding me-1">
-                                    <div class="dropdown rounded ">
-                                        <p style="color: #7B7B7B;"
-                                            class="d-flex aligns-items-center justify-content-center">Project Name</p>
+                                    <div class="dropdown rounded d-flex align-items-center">
+                                        <p style="color: #7B7B7B;">Project Name
+                                        </p>
                                     </div>
 
                                 </div>
                                 <div class="col-md-2 nopadding me-1">
-                                    <div class="dropdown rounded text-center">
+                                    <div class="dropdown rounded d-flex align-items-center">
                                         <p style="color: #7B7B7B;">Activity</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1 nopadding me-1">
-                                    <div class="dropdown text-center rounded">
+                                    <div class="dropdown d-flex align-items-center rounded">
                                         <p style="color: #7B7B7B;">Task</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1  nopadding me-1">
-                                    <div class="days text-center rounded">
+                                    <div class="days d-flex align-items-center rounded">
                                         <p style="color: #7B7B7B;">Mon</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1  nopadding me-1">
-                                    <div class="days text-center rounded">
+                                    <div class="days d-flex align-items-center rounded">
                                         <p style="color: #7B7B7B;">Tue</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1  nopadding me-1">
-                                    <div class="days text-center rounded">
+                                    <div class="days d-flex align-items-center rounded">
                                         <p style="color: #7B7B7B;">Wed</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1  nopadding me-1">
-                                    <div class="days text-center rounded">
+                                    <div class="days d-flex align-items-center rounded">
                                         <p style="color: #7B7B7B;">Thu</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1  nopadding me-1">
-                                    <div class="days text-center rounded">
+                                    <div class="days d-flex align-items-center rounded">
                                         <p style="color: #7B7B7B;">Fri</p>
                                     </div>
                                 </div>
                                 <div class="col-md-1 nopadding me-1">
-                                    <div class="days text-center rounded">
+                                    <div class="days d-flex align-items-center rounded">
                                         <p style="color: #7B7B7B;">Sat</p>
                                     </div>
                                 </div>
@@ -99,11 +103,12 @@
 
 
                 <!-- inputfields data -->
-                <div class="me-5 ms-5 mt-1">
-                
-                        <div class="row" formArrayName="itenRows">
+                <form [formGroup]="taskData" (ngSubmit)="dataReceive()">
+                    <div class="me-5 ms-5 mt-2" formArrayName="itemRows">
+
+                        <div class="row mt-2" *ngFor="let data of itemRows.controls; let i=index" [formGroupName]="i">
                             <div class="col-md-10">
-                                <div class="row" *ngFor="let item of itemRows.controls">
+                                <div class="row">
                                     <div class="col-md-2 nopadding me-1">
                                         <!-- <div class=" dropdown"> -->
                                         <select class="form-select" aria-label="Default select example" name="activity"
@@ -148,9 +153,11 @@
                                         </select>
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" name="task" formControlName="task">
+                                        <input type="textarea" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" name="task" formControlName="task"
+                                            value="{{startDate}}">
                                         <!-- <input type="text"> -->
+                                        <!-- <textarea class="form-control"></textarea> -->
                                     </div>
                                     <div class="col-md-1 nopadding me-1">
                                         <input type="number" class="form-control" id="exampleInputEmail1"
@@ -177,46 +184,44 @@
                                             aria-describedby="emailHelp" name="fri" formControlName="fri">
                                         <!-- <input type="text"> -->
                                     </div>
-                                    <div class="col-md-1 nopadding me-1">
-                                        <input type="number" class="form-control" id="exampleInputEmail1"
+                                    <div class="col-md-1 nopadding me-1 d-flex">
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
                                             aria-describedby="emailHelp" name="sat" formControlName="sat">
+
                                         <!-- <input type="text"> -->
+
                                     </div>
+
+
                                 </div>
-                            </div>
-                            <div class="col-md-1">
+                                <!-- <div class="col-md-1">
                                 <button class="btn btn-primary d-flex pe-5" type="submit"> ADD</button>
+
+                             
+                                     <div class="col-md-1 d-flex">
+                                <button class="btn btn-primary d-flex pe-5"> ADD</button>
+
+                            </div> -->
+
+
 
                             </div>
                             <div class="col-md-1 d-flex">
-                                <button class="btn btn-primary d-flex pe-5"> ADD</button>
+                                <button class="btn btn-primary" (click)="addForm()" type="button">ADD</button>
+
+                                <button class="btn btn-danger ms-2" (click)="removeForm(i)">Delete</button>
 
                             </div>
-                        </div>
-                   
 
-                </div>
+
+
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+
+
+                    </div>
+                </form>
 
 
             </div>
-
-
-
         </div>
-        
-    
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

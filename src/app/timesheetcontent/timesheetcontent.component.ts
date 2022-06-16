@@ -9,6 +9,8 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 export class TimesheetcontentComponent implements OnInit {
   taskData: FormGroup;
 
+  startDate: any;
+
 
   constructor(public fb: FormBuilder) {
 
@@ -27,22 +29,21 @@ export class TimesheetcontentComponent implements OnInit {
     //   })
 
     // ])
-  }
-  addForm() {
-
-    this.formArry.push(this.initItemRow())
-
-  }
-
-
-  ngOnInit(): void {
     this.taskData = this.fb.group({
       //create a itemrows control in formgroup
       itemRows: this.fb.array([this.initItemRow()])
 
     })
+
+
   }
-  get formArry() {
+
+
+
+  ngOnInit(): void {
+
+  }
+  get itemRows() {
     return this.taskData.get("itemRows") as FormArray;
   }
   initItemRow() {
@@ -58,7 +59,18 @@ export class TimesheetcontentComponent implements OnInit {
       sat: [""]
     })
   }
+  addForm() {
+    this.itemRows.push(this.initItemRow())
+  }
 
+  removeForm(i: number) {
+    this.itemRows.removeAt(i)
+  }
+  dataReceive() {
+
+    console.log(this.itemRows.value)
+
+  }
 
 
 

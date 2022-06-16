@@ -1,18 +1,29 @@
 .timesheet {
     background-color: #FAFAFA;
-    height: 500px;
+    height: auto;
+    padding-bottom: 200px;
+    border-radius: 10px;
 }
 
 .timecard {
     background-color: #81C784;
-    width: 160px;
+    width: 170px;
     height: 65px;
-    margin: 25px;
+    margin: 30px;
     border-radius: 3px;
 }
 
+#datapicker {
+    background-color: #81C784;
+    border: none;
+    font-size: small;
+    color: white;
+}
+
+
 .timecard p {
     font-size: small;
+    margin: 0 auto !important;
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
@@ -25,7 +36,42 @@
     }
 }
 
-@media (max-width: 1200px) {
+
+
+
+.dropdown {
+    font-size: small;
+    background-color: #F2F3F7;
+    height: 30px;
+    /* width: 170px; */
+}
+
+.dropdown p {
+    margin: 0 auto !important;
+}
+
+.days p {
+    margin: 0 auto !important;
+}
+
+.days {
+    font-size: small;
+    background-color: #A9C3E5;
+    height: 30px;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
     .timecard {
         background-color: #81C784;
         width: 110px;
@@ -39,26 +85,7 @@
     }
 }
 
-
-.dropdown {
-    font-size: small;
-    background-color: #F2F3F7;
-    height: 30px;
-    /* width: 170px; */
-}
-
-.days {
-    font-size: small;
-    background-color: #A9C3E5;
-    height: 30px;
-}
-
-.nopadding {
-    padding: 0 !important;
-}
-
-
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1200px) {
     .timecard {
         background-color: #81C784;
         width: 110px;
